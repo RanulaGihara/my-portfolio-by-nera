@@ -1,26 +1,19 @@
-"use client";   
-import '../styles/globals.css'
-import { ReactNode } from 'react'
-import { ThemeProvider, createTheme, CssBaseline } from '@mui/material'
-import Navbar from '@/components/navbar'
+// src/app/layout.tsx  (Server Component—no "use client")
+import "../styles/globals.css";
+import MuiProvider from "@/components/MuiProvider";
+import Navbar from "@/components/navbar";
 
-const theme = createTheme({
-  palette: {
-    primary: { main: '#1D4ED8' },     
-    secondary: { main: '#F43F5E' },
-  },
-})
-
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
+        <MuiProvider>
           <Navbar />
-          <main className="container mx-auto px-4 py-8">{children}</main>
-        </ThemeProvider>
+          <main className="container mx-auto px-4 py-8">
+            {children}
+          </main>
+        </MuiProvider>
       </body>
     </html>
-  )
+  );
 }

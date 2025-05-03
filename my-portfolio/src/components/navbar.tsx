@@ -1,3 +1,4 @@
+"use client";   
 import Link from 'next/link'
 import { AppBar, Toolbar, Button } from '@mui/material'
 
