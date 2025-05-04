@@ -1,3 +1,4 @@
+import { Grid, Typography, Box } from "@mui/material";
 import ProjectCard from "@/components/projectCard";
 
 const projects = [
@@ -6,17 +7,37 @@ const projects = [
     description: "Built with Next.js and Tailwind",
     link: "https://github.com/you/awesome-app",
   },
+  {
+    title: "Awesome App-2",
+    description: "Built with Next.js and Tailwind",
+    link: "https://github.com/you/awesome-app",
+  },
+  {
+    title: "Awesome App-3",
+    description: "Built with Next.js and Tailwind",
+    link: "https://github.com/you/awesome-app",
+  },
+  {
+    title: "Awesome App-4",
+    description: "Built with Next.js and Tailwind",
+    link: "https://github.com/you/awesome-app",
+  },
 ];
 
 export default function ProjectsPage() {
   return (
-    <section id="projects" className="py-16">
-      <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
-      <div className="grid gap-8 md:grid-cols-2">
+    <Box component="section" id="projects" py={8}>
+      <Typography variant="h4" align="center" fontWeight="bold" gutterBottom>
+        Projects
+      </Typography>
+
+      <Grid container spacing={4}>
         {projects.map((p) => (
-          <ProjectCard key={p.title} {...p} />
+          <Grid key={p.title} size={{ xs: 12, md: 4 }}>
+            <ProjectCard {...p} />
+          </Grid>
         ))}
-      </div>
-    </section>
+      </Grid>
+    </Box>
   );
 }
